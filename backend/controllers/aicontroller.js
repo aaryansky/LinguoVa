@@ -9,9 +9,9 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 // Model priority list — tries each in order if the previous fails
 const MODEL_PRIORITY = [
-  'gemini-2.5-flash',
   'gemini-2.0-flash',
-  'gemini-2.0-flash-lite'
+  'gemini-2.0-flash-lite',
+  'gemini-2.5-flash'
 ];
 
 // Helper: generate content with fallback
