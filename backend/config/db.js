@@ -20,7 +20,7 @@ const connectDB = async () => {        // async because connecting takes time
       const PlatformConfig = require('../models/PlatformConfig');
       let config = await PlatformConfig.findOne({ key: 'global_config' });
       console.log('🤖 Loaded platform config from database:', config);
-      const validModels = ['gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-2.0-flash-lite', 'gemini-1.5-pro'];
+      const validModels = ['gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-2.0-flash-lite'];
       if (config && !validModels.includes(config.activeModel)) {
         console.log(`🔧 Auto-repairing active AI model from "${config.activeModel}" to "gemini-2.5-flash"`);
         config.activeModel = 'gemini-2.5-flash';
