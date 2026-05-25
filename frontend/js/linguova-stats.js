@@ -75,12 +75,13 @@ const LinguovaStats = (() => {
       if (!saved && user.token) {
         const dbProgress = user.progress || {};
         const langStats = dbProgress[activeLang] || {};
+        const isLegacyMigration = Object.keys(dbProgress).length === 0;
         
         const initial = Object.assign({}, DEFAULTS, {
-          streak: langStats.streak ?? (activeLang === user.language ? (user.streak || 0) : 0),
-          xp: langStats.xp ?? (activeLang === user.language ? (user.xp || 0) : 0),
-          wordsLearned: langStats.wordsLearned ?? (activeLang === user.language ? (user.wordsLearned || 0) : 0),
-          accuracy: langStats.accuracy ?? (activeLang === user.language ? (user.accuracy || 0) : 0)
+          streak: langStats.streak ?? (isLegacyMigration && activeLang === user.language ? (user.streak || 0) : 0),
+          xp: langStats.xp ?? (isLegacyMigration && activeLang === user.language ? (user.xp || 0) : 0),
+          wordsLearned: langStats.wordsLearned ?? (isLegacyMigration && activeLang === user.language ? (user.wordsLearned || 0) : 0),
+          accuracy: langStats.accuracy ?? (isLegacyMigration && activeLang === user.language ? (user.accuracy || 0) : 0)
         });
         localStorage.setItem(key, JSON.stringify(initial));
         return initial;
@@ -101,7 +102,7 @@ const LinguovaStats = (() => {
       const userObj = JSON.parse(localStorage.getItem('user')) || {};
       const activeLang = userObj.language || 'Japanese';
       const API_BASE = window.getApiBase();
-      fetch(`${API_BASE}/api/auth/stats`, {
+      return fetch(`${API_BASE}/api/auth/stats`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -135,6 +136,7 @@ const LinguovaStats = (() => {
       })
       .catch(err => console.warn('Network error while syncing stats:', err.message));
     }
+    return Promise.resolve();
   }
 
   /* ── Public API ── */
@@ -253,7 +255,56 @@ const LinguovaStats = (() => {
     return s;
   }
 
-  return { get, addXP, recordQuiz, addWords, setDailyGoal, resetDailyIfNeeded, getStatsKey };
+  /** Sync active language course stats from the database without pushing outdated/0 local stats */
+  function changeLanguage(newLang) {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      const user = JSON.parse(localStorage.getItem('user')) || {};
+      user.language = newLang;
+      localStorage.setItem('user', JSON.stringify(user));
+      return Promise.resolve();
+    }
+
+    const API_BASE = window.getApiBase();
+    return fetch(`${API_BASE}/api/auth/stats`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify({
+        language: newLang
+      })
+    })
+    .then(async res => {
+      if (!res.ok) {
+        console.warn('Failed to sync language change to database:', res.statusText);
+        const user = JSON.parse(localStorage.getItem('user')) || {};
+        user.language = newLang;
+        localStorage.setItem('user', JSON.stringify(user));
+      } else {
+        const data = await res.json();
+        const user = JSON.parse(localStorage.getItem('user')) || {};
+        if (data.progress) {
+          user.progress = data.progress;
+          user.language = data.language || newLang;
+          user.xp = data.xp;
+          user.streak = data.streak;
+          user.wordsLearned = data.wordsLearned;
+          user.accuracy = data.accuracy;
+          localStorage.setItem('user', JSON.stringify(user));
+        }
+      }
+    })
+    .catch(err => {
+      console.warn('Network error while syncing language change:', err.message);
+      const user = JSON.parse(localStorage.getItem('user')) || {};
+      user.language = newLang;
+      localStorage.setItem('user', JSON.stringify(user));
+    });
+  }
+
+  return { get, save, changeLanguage, addXP, recordQuiz, addWords, setDailyGoal, resetDailyIfNeeded, getStatsKey };
 })();
 
 // Auto-reset daily progress if it's a new day

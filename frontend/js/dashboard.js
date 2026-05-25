@@ -14,6 +14,9 @@ function getUser() {
   return JSON.parse(localStorage.getItem('user')) || {};
 }
 function getStats() {
+  if (typeof LinguovaStats !== 'undefined') {
+    return LinguovaStats.get();
+  }
   // Unified stats object stored separately so any page can update it
   const defaults = {
     streak: 0,
@@ -24,7 +27,10 @@ function getStats() {
     vocabProgress: 0,
     pronunProgress: 0,
     todayCompleted: 0,
-    todayGoal: 0,
+    todayGoal: 5,
+    lastActiveDate: '',
+    totalAnswered: 0,
+    totalCorrect: 0,
     aiChatDoneToday: false,
     wordsLearnedToday: 0,
     quizQuestionsToday: 0
@@ -203,15 +209,16 @@ function initLangSelect() {
   const langSelect = document.getElementById('langSelect');
   langSelect.value = user.language || 'Japanese';
   langSelect.addEventListener('change', (e) => {
-    const u = getUser();
-    u.language = e.target.value;
-    localStorage.setItem('user', JSON.stringify(u));
     if (typeof LinguovaStats !== 'undefined') {
-      LinguovaStats.save(LinguovaStats.get());
-    }
-    setTimeout(() => {
+      LinguovaStats.changeLanguage(e.target.value).then(() => {
+        window.location.reload();
+      });
+    } else {
+      const u = getUser();
+      u.language = e.target.value;
+      localStorage.setItem('user', JSON.stringify(u));
       window.location.reload();
-    }, 150);
+    }
   });
 }
 

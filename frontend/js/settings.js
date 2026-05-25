@@ -63,32 +63,43 @@ document.getElementById('accountForm').addEventListener('submit', (e) => {
   e.preventDefault();
   
   const user = JSON.parse(localStorage.getItem('user')) || {};
+  const oldLanguage = user.language;
+  const newLanguage = document.getElementById('settingsLang').value;
   
-  // Update user object fields
+  // Update other user object fields in localStorage
   user.name = document.getElementById('settingsName').value;
   user.email = document.getElementById('settingsEmail').value;
-  user.language = document.getElementById('settingsLang').value;
   user.level = document.getElementById('settingsLevel').value;
   user.dailyGoal = document.getElementById('settingsGoal').value;
   user.remindersEnabled = document.getElementById('settingsReminders').checked;
-  
-  // Write back to localStorage
   localStorage.setItem('user', JSON.stringify(user));
   
-  // Sync to database
+  // Sync language change and retrieve correct stats
   if (typeof LinguovaStats !== 'undefined') {
-    LinguovaStats.save(LinguovaStats.get());
+    LinguovaStats.changeLanguage(newLanguage).then(() => {
+      renderSettingsPage();
+      const successEl = document.getElementById('settingsSuccess');
+      successEl.style.display = 'block';
+      setTimeout(() => {
+        successEl.style.display = 'none';
+        if (oldLanguage !== newLanguage) {
+          window.location.reload();
+        }
+      }, 1000);
+    });
+  } else {
+    user.language = newLanguage;
+    localStorage.setItem('user', JSON.stringify(user));
+    renderSettingsPage();
+    const successEl = document.getElementById('settingsSuccess');
+    successEl.style.display = 'block';
+    setTimeout(() => {
+      successEl.style.display = 'none';
+      if (oldLanguage !== newLanguage) {
+        window.location.reload();
+      }
+    }, 1000);
   }
-  
-  // Trigger update
-  renderSettingsPage();
-  
-  // Show success feedback
-  const successEl = document.getElementById('settingsSuccess');
-  successEl.style.display = 'block';
-  setTimeout(() => {
-    successEl.style.display = 'none';
-  }, 3000);
 });
 
 // Sync goals and reminders change immediately

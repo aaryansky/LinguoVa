@@ -31,9 +31,15 @@ const langSelect = document.getElementById('langSelect');
 if (langSelect) {
   langSelect.value = user.language || 'Japanese';
   langSelect.addEventListener('change', (e) => {
-    user.language = e.target.value;
-    localStorage.setItem('user', JSON.stringify(user));
-    window.location.reload();
+    if (typeof LinguovaStats !== 'undefined') {
+      LinguovaStats.changeLanguage(e.target.value).then(() => {
+        window.location.reload();
+      });
+    } else {
+      user.language = e.target.value;
+      localStorage.setItem('user', JSON.stringify(user));
+      window.location.reload();
+    }
   });
 }
 
