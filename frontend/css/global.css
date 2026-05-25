@@ -1,0 +1,164 @@
+/* ── 1. Import Google Font ── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ── 2. Design Tokens (CSS Variables) ── */
+:root {
+  /* ── 5-Color Brand Palette ── */
+  --blush:      #EDADC7;  /* Lightest pink */
+  --lilac-1:    #D199B6;  /* Lilac */
+  --lilac-2:    #C493B0;  /* Deeper Lilac */
+  --lilac-ash:  #A68BA5;  /* Muted Lilac/Purple */
+  --charcoal:   #5C5D67;  /* Darkest, near-black */
+
+  /* ── Semantic Roles ── */
+  --primary:        var(--charcoal);
+  --primary-dark:   #45464d;
+  --accent:         var(--lilac-2);
+
+  /* ── Backgrounds ── */
+  --bg-page:    #FAF3F7;
+  --bg-dark:    #FAF3F7;
+  --bg-card:    #FFFFFF;
+  --bg-sidebar: var(--charcoal);
+  --bg-input:   #FFFFFF;
+
+  /* ── Text ── */
+  --text-primary:   var(--charcoal);
+  --text-secondary: var(--lilac-ash);
+  --text-on-dark:   #FFFFFF;
+  --text-on-accent: #FFFFFF;
+
+  /* ── Borders ── */
+  --border: rgba(166, 139, 165, 0.22);
+
+  /* ── Accent aliases (for compat) ── */
+  --accent-green:  var(--lilac-ash);
+  --accent-yellow: var(--lilac-2);
+  --accent-red:    var(--lilac-1);
+
+  --radius:    14px;
+  --radius-sm:  9px;
+}
+
+/* ── 3. Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+a { text-decoration: none; color: inherit; }
+
+/* ── 4. Reusable Components ── */
+
+/* Buttons */
+.btn-primary {
+  background: var(--primary);
+  color: #FFFFFF;
+  padding: 12px 24px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+/* Cards */
+.card {
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(166, 139, 165, 0.07);
+}
+
+/* Input fields */
+.input-field {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  color: var(--charcoal);
+  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.input-field:focus {
+  outline: none;
+  border-color: var(--lilac-2);
+  box-shadow: 0 0 0 3px rgba(196, 147, 176, 0.15);
+}
+
+/* Badges/Pills */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 99px;
+  font-size: 13px;
+  font-weight: 500;
+}
+.badge-primary { background: rgba(196, 147, 176, 0.15); color: var(--lilac-2); }
+.badge-green   { background: rgba(166, 139, 165, 0.15); color: var(--lilac-ash); }
+.badge-yellow  { background: rgba(209, 153, 182, 0.15); color: var(--lilac-1); }
+
+/* ── Sidebar Nav Icon (SVG) ── */
+.nav-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: inherit;
+}
+.nav-icon svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  display: block;
+}
+
+/* Logo icon wrapper */
+.logo-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-icon svg { display: block; }
+
+/* ── Module / Page content icon pills ── */
+.mod-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  margin-bottom: 14px;
+  flex-shrink: 0;
+}
+.mod-icon-wrap svg { display: block; }
+
+.mi-blush  { background: rgba(237,173,199,0.2); color: #EDADC7; }
+.mi-lilac1 { background: rgba(209,153,182,0.2); color: #D199B6; }
+.mi-lilac2 { background: rgba(196,147,176,0.2); color: #C493B0; }
+.mi-ash    { background: rgba(166,139,165,0.2); color: #A68BA5; }
+
+/* ── Leaderboard podium avatar ── */
+.podium-avatar {
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFFFFF;
+  background: linear-gradient(135deg, var(--lilac-2), var(--lilac-ash));
+}
+.podium-avatar.large {
+  background: linear-gradient(135deg, var(--blush), var(--lilac-1));
+}

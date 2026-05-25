@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile — LinguoVa</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/profile.css">
+</head>
+<body>
+<div class="app-layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo"><span class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EDADC7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span><span class="logo-text">LinguoVa</span></div>
+    <nav>
+      <p class="nav-label">Learn</p>
+      <a href="dashboard.html" class="nav-item"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>Dashboard</a>
+      <a href="modules.html" class="nav-item"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>Learning Modules</a>
+      <a href="ai-practice.html" class="nav-item"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>AI Practice</a>
+      <a href="daily-words.html" class="nav-item"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>Daily Words</a>
+      <a href="leaderboard.html" class="nav-item"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 20 18 10"/><polyline points="12 20 12 4"/><polyline points="6 20 6 14"/></svg></span>Leaderboard</a>
+      <p class="nav-label">Account</p>
+      <a href="settings.html" class="nav-item"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>Settings</a>
+    </nav>
+    <a href="profile.html" class="sidebar-user active">
+      <div class="user-avatar" id="userInitials">AK</div>
+      <div>
+        <p class="user-name" id="userName">Aryan Kumar</p>
+        <p class="user-level" id="userLevel">Language Learner</p>
+      </div>
+    </a>
+  </aside>
+
+  <main class="main-content">
+    <!-- Profile Hero -->
+    <div class="profile-hero card">
+      <div class="profile-avatar-big" id="profileInitials">AK</div>
+      <div class="profile-info">
+        <h1 id="profileName">Aryan Kumar</h1>
+        <p id="profileEmail" style="color:var(--text-secondary);font-size:14px;"></p>
+        <div style="display:flex;gap:10px;margin-top:12px;">
+          <span class="badge badge-primary" id="profileLang">🇯🇵 Japanese</span>
+          <span class="badge badge-green" id="profileLevel">Beginner</span>
+        </div>
+      </div>
+      <button class="btn-primary" onclick="logout()" style="margin-left:auto;padding:10px 20px;font-size:14px;">
+        Sign Out
+      </button>
+    </div>
+
+    <!-- Stats Row -->
+    <div class="profile-stats">
+      <div class="stat-card">
+        <p class="stat-val" id="statXP">0</p>
+        <p class="stat-label">Total XP</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-val" id="statStreak">0</p>
+        <p class="stat-label">Day Streak 🔥</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-val" id="statWords">0</p>
+        <p class="stat-label">Words Learned</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-val" id="statAccuracy">0%</p>
+        <p class="stat-label">Accuracy</p>
+      </div>
+    </div>
+
+    <!-- Achievements -->
+    <div class="card" style="margin-bottom:20px;">
+      <h3 style="font-size:16px;font-weight:700;margin-bottom:16px;">🏅 Achievements</h3>
+      <div class="achievements-grid">
+        <div class="achievement earned">
+          <span class="ach-icon">🔥</span>
+          <p class="ach-name">First Streak</p>
+          <p class="ach-desc">Log in 3 days in a row</p>
+        </div>
+        <div class="achievement earned">
+          <span class="ach-icon">📝</span>
+          <p class="ach-name">Quiz Master</p>
+          <p class="ach-desc">Complete your first quiz</p>
+        </div>
+        <div class="achievement">
+          <span class="ach-icon">🌟</span>
+          <p class="ach-name">XP Legend</p>
+          <p class="ach-desc">Earn 1,000 XP total</p>
+        </div>
+        <div class="achievement">
+          <span class="ach-icon">🤖</span>
+          <p class="ach-name">AI Talker</p>
+          <p class="ach-desc">10 AI chat sessions</p>
+        </div>
+        <div class="achievement">
+          <span class="ach-icon">📚</span>
+          <p class="ach-name">Word Collector</p>
+          <p class="ach-desc">Learn 100 vocabulary words</p>
+        </div>
+        <div class="achievement">
+          <span class="ach-icon">🏆</span>
+          <p class="ach-name">Top Learner</p>
+          <p class="ach-desc">Reach #1 on leaderboard</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Settings Section -->
+    <div class="card">
+      <h3 style="font-size:16px;font-weight:700;margin-bottom:16px;">⚙️ Preferences</h3>
+      <div class="settings-list">
+        <div class="setting-row">
+          <div>
+            <p class="setting-label">Daily Goal</p>
+            <p class="setting-desc">How many minutes per day?</p>
+          </div>
+          <select class="setting-select" id="profileGoal">
+            <option value="15 minutes">15 minutes</option>
+            <option value="30 minutes">30 minutes</option>
+            <option value="45 minutes">45 minutes</option>
+            <option value="60 minutes">60 minutes</option>
+          </select>
+        </div>
+        <div class="setting-row">
+          <div>
+            <p class="setting-label">Reminder Notifications</p>
+            <p class="setting-desc">Get daily practice reminders</p>
+          </div>
+          <label class="toggle">
+            <input type="checkbox" id="profileReminders" checked>
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/linguova-stats.js"></script>
+<script src="../js/profile.js"></script>
+</body>
+</html>

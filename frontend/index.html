@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinguoVa — AI-Powered Language Learning</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+  <div class="auth-container">
+    
+    <!-- LEFT PANEL: Branding -->
+    <div class="auth-left">
+      <div class="brand">
+        <div class="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#EDADC7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+        </div>
+        <h1 class="brand-name">LinguoVa</h1>
+      </div>
+      <p class="brand-tagline">
+        Master any language with real AI conversations, 
+        smart quizzes and personalized learning paths.
+      </p>
+      <div class="language-grid">
+        <span class="lang-pill">🇯🇵 Japanese</span>
+        <span class="lang-pill">🇫🇷 French</span>
+        <span class="lang-pill">🇪🇸 Spanish</span>
+        <span class="lang-pill">🇩🇪 German</span>
+        <span class="lang-pill">🇮🇹 Italian</span>
+        <span class="lang-pill">🇮🇳 Hindi</span>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL: Login Form -->
+    <div class="auth-right">
+      <div class="auth-form-wrap">
+        <h2>Welcome Back 👋</h2>
+        <p class="auth-sub">Sign in to continue your learning journey</p>
+
+        <form id="loginForm">
+          <div class="form-group">
+            <label>EMAIL ADDRESS</label>
+            <input type="email" id="email" class="input-field" placeholder="you@example.com">
+          </div>
+          <div class="form-group">
+            <label>PASSWORD</label>
+            <input type="password" id="password" class="input-field" placeholder="••••••••">
+            <a href="#" class="forgot-link">Forgot Password?</a>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%">
+            Sign In →
+          </button>
+          <p id="error-msg" style="color:var(--accent-red);display:none;"></p>
+        </form>
+
+        <div class="divider"><span>or Continue with</span></div>
+        <button type="button" class="btn-google" id="btnGoogle" style="width:100%; margin-top:16px;">Continue with Google</button>
+        <p class="register-link">
+          Don't have an account? 
+          <a href="pages/register.html">Create one for free</a>
+        </p>
+      </div>
+    </div>
+
+  </div>
+  <script src="js/auth.js"></script>
+</body>
+</html>

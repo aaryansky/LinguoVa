@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard — LinguoVa</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+
+  <div class="app-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <span class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EDADC7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+        <span class="logo-text">LinguoVa</span>
+      </div>
+      <nav>
+        <p class="nav-label">Learn</p>
+        <a href="dashboard.html" class="nav-item active"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>Dashboard</a>
+        <a href="modules.html" class="nav-item"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>Learning Modules</a>
+        <a href="ai-practice.html" class="nav-item"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>AI Practice</a>
+        <a href="daily-words.html" class="nav-item"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>Daily Words</a>
+        <a href="leaderboard.html" class="nav-item"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 20 18 10"/><polyline points="12 20 12 4"/><polyline points="6 20 6 14"/></svg></span>Leaderboard</a>
+        <p class="nav-label">Account</p>
+        <a href="settings.html" class="nav-item"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>Settings</a>
+      </nav>
+      <a href="profile.html" class="sidebar-user">
+        <div class="user-avatar" id="userInitials">AK</div>
+        <div>
+          <p class="user-name" id="userName">Aryan Kumar</p>
+          <p class="user-level" id="userLevel">Level 12 · Intermediate</p>
+        </div>
+      </a>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+      <!-- Header -->
+      <div class="dash-header">
+        <h1 id="greeting">Good Morning, Aryan 👋</h1>
+        <select class="badge badge-primary" id="langSelect" style="background-color: var(--primary); color: white; border: none; outline: none; cursor: pointer; font-family: inherit; font-size: inherit; appearance: none; -webkit-appearance: none; padding-right: 24px; background-image: url('data:image/svg+xml;utf8,<svg fill=%22white%22 height=%2224%22 viewBox=%220 0 24 24%22 width=%2224%22 xmlns=%22http://www.w3.org/2000/svg%22><path d=%22M7 10l5 5 5-5z%22/><path d=%22M0 0h24v24H0z%22 fill=%22none%22/></svg>'); background-repeat: no-repeat; background-position-x: 100%; background-position-y: 50%;">
+          <option value="Japanese">🇯🇵 Japanese</option>
+          <option value="French">🇫🇷 French</option>
+          <option value="Spanish">🇪🇸 Spanish</option>
+          <option value="German">🇩🇪 German</option>
+          <option value="Italian">🇮🇹 Italian</option>
+          <option value="Hindi">🇮🇳 Hindi</option>
+        </select>
+      </div>
+
+      <!-- KPI Cards -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <span class="kpi-icon kpi-icon--blush">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          </span>
+          <p class="kpi-value" id="streak">0</p>
+          <p class="kpi-label">Day Streak</p>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-icon kpi-icon--lilac1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </span>
+          <p class="kpi-value" id="xp">0</p>
+          <p class="kpi-label">Total XP</p>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-icon kpi-icon--lilac2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </span>
+          <p class="kpi-value" id="words">0</p>
+          <p class="kpi-label">Words Learned</p>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-icon kpi-icon--ash">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </span>
+          <p class="kpi-value" id="accuracy">0%</p>
+          <p class="kpi-label">Accuracy</p>
+        </div>
+      </div>
+
+      <!-- Weekly Streak + Today's Goal -->
+      <div class="mid-grid">
+        <div class="card weekly-streak">
+          <h3>Weekly Streak</h3>
+          <div class="day-row">
+            <span>M</span><span>T</span><span>W</span>
+            <span>T</span><span>F</span><span>S</span><span>S</span>
+          </div>
+          <div class="progress-item">
+            <span>Grammar</span>
+            <div class="progress-bar"><div class="bar-fill green" id="barGrammar" style="width:0%"></div></div>
+            <span id="pctGrammar">0%</span>
+          </div>
+          <div class="progress-item">
+            <span>Vocabulary</span>
+            <div class="progress-bar"><div class="bar-fill purple" id="barVocab" style="width:0%"></div></div>
+            <span id="pctVocab">0%</span>
+          </div>
+          <div class="progress-item">
+            <span>Pronunciation</span>
+            <div class="progress-bar"><div class="bar-fill red" id="barPronun" style="width:0%"></div></div>
+            <span id="pctPronun">0%</span>
+          </div>
+        </div>
+
+        <div class="card today-goal">
+          <h3>Today's Goal</h3>
+          <div class="donut-wrap">
+            <canvas id="goalChart" width="150" height="150"></canvas>
+            <div class="donut-label" id="goalPct">0%</div>
+          </div>
+          <p class="goal-sub" id="goalSub">0/3 Targets Completed</p>
+          
+          <!-- Interactive Targets Selector -->
+          <div class="goal-checklist" style="width: 100%; border-top: 1px solid var(--border); padding-top: 14px; margin-top: 8px; text-align: left; display: flex; flex-direction: column; gap: 8px;">
+            <p style="font-size: 10px; font-weight: 700; color: var(--text-secondary); margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.06em;">CHOOSE DAILY TARGETS:</p>
+            
+            <label style="display: flex; align-items: center; justify-content: space-between; font-size: 13px; cursor: pointer; user-select: none;">
+              <span style="display: flex; align-items: center; gap: 8px;">
+                <input type="checkbox" id="targetAI" style="width: 16px; height: 16px; accent-color: var(--primary); cursor: pointer;">
+                <span>🗣️ AI Conversation (5m)</span>
+              </span>
+              <span id="statusAI" style="font-size: 11px; font-weight: 700; color: var(--text-secondary);">0/1</span>
+            </label>
+            
+            <label style="display: flex; align-items: center; justify-content: space-between; font-size: 13px; cursor: pointer; user-select: none;">
+              <span style="display: flex; align-items: center; gap: 8px;">
+                <input type="checkbox" id="targetWords" style="width: 16px; height: 16px; accent-color: var(--primary); cursor: pointer;">
+                <span>📚 Learn 5 Words</span>
+              </span>
+              <span id="statusWords" style="font-size: 11px; font-weight: 700; color: var(--text-secondary);">0/5</span>
+            </label>
+            
+            <label style="display: flex; align-items: center; justify-content: space-between; font-size: 13px; cursor: pointer; user-select: none;">
+              <span style="display: flex; align-items: center; gap: 8px;">
+                <input type="checkbox" id="targetQuiz" style="width: 16px; height: 16px; accent-color: var(--primary); cursor: pointer;">
+                <span>📝 Complete 5 Quiz Qs</span>
+              </span>
+              <span id="statusQuiz" style="font-size: 11px; font-weight: 700; color: var(--text-secondary);">0/5</span>
+            </label>
+          </div>
+          
+          <div class="next-task" style="width: 100%; margin-top: 14px; display: none;">
+            <p class="next-label">Next:</p>
+            <p>Vocabulary Cards (12 new words)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Continue Learning -->
+      <div class="card continue-learning">
+        <h3>Continue Learning</h3>
+        <a href="modules.html" class="learn-item">
+          <span class="learn-icon learn-icon--blush">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </span>
+          <div>
+            <p class="item-title">Daily Quiz</p>
+            <p class="item-sub">5 questions · ~3 mins</p>
+          </div>
+        </a>
+        <a href="modules.html" class="learn-item">
+          <span class="learn-icon learn-icon--lilac">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </span>
+          <div>
+            <p class="item-title">Vocabulary Flashcards</p>
+            <p class="item-sub">12 new · 8 review</p>
+          </div>
+        </a>
+        <a href="ai-practice.html" class="learn-item">
+          <span class="learn-icon learn-icon--ash">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </span>
+          <div>
+            <p class="item-title">AI Conversation Practice</p>
+            <p class="item-sub">Live Dialog with Hana-Sensei</p>
+          </div>
+        </a>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Stats Utility -->
+  <script src="../js/linguova-stats.js"></script>
+  <!-- Dashboard JS -->
+  <script src="../js/dashboard.js"></script>
+</body>
+</html>

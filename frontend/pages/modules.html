@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Learning Modules — LinguoVa</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/modules.css">
+</head>
+<body>
+<div class="app-layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-logo"><span class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EDADC7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span><span class="logo-text">LinguoVa</span></div>
+    <nav>
+      <p class="nav-label">Learn</p>
+      <a href="dashboard.html" class="nav-item"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>Dashboard</a>
+      <a href="modules.html" class="nav-item active"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>Learning Modules</a>
+      <a href="ai-practice.html" class="nav-item"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>AI Practice</a>
+      <a href="daily-words.html" class="nav-item"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>Daily Words</a>
+      <a href="leaderboard.html" class="nav-item"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 20 18 10"/><polyline points="12 20 12 4"/><polyline points="6 20 6 14"/></svg></span>Leaderboard</a>
+      <p class="nav-label">Account</p>
+      <a href="settings.html" class="nav-item"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>Settings</a>
+    </nav>
+    <a href="profile.html" class="sidebar-user">
+      <div class="user-avatar" id="userInitials">AK</div>
+      <div>
+        <p class="user-name" id="userName">Aryan Kumar</p>
+        <p class="user-level" id="userLevel">Level 12 · Intermediate</p>
+      </div>
+    </a>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+
+    <!-- Module Picker (shown first) -->
+    <div id="modulePicker">
+      <div class="mod-header">
+        <h1>Learning Modules</h1>
+        <select class="badge badge-primary" id="langDisplay" style="background-color: var(--primary); color: white; border: none; outline: none; cursor: pointer; font-family: inherit; font-size: inherit; appearance: none; -webkit-appearance: none; padding-right: 24px; background-image: url('data:image/svg+xml;utf8,<svg fill=%22white%22 height=%2224%22 viewBox=%220 0 24 24%22 width=%2224%22 xmlns=%22http://www.w3.org/2000/svg%22><path d=%22M7 10l5 5 5-5z%22/><path d=%22M0 0h24v24H0z%22 fill=%22none%22/></svg>'); background-repeat: no-repeat; background-position-x: 100%; background-position-y: 50%;">
+          <option value="Japanese">🇯🇵 Japanese</option>
+          <option value="French">🇫🇷 French</option>
+          <option value="Spanish">🇪🇸 Spanish</option>
+          <option value="German">🇩🇪 German</option>
+          <option value="Italian">🇮🇹 Italian</option>
+          <option value="Hindi">🇮🇳 Hindi</option>
+        </select>
+      </div>
+      <div class="module-grid">
+        <div class="module-card" onclick="startModule('grammar')">
+          <span class="mod-icon-wrap mi-blush"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></span>
+          <h3>Grammar Lessons</h3>
+          <p>Master sentence structure and rules</p>
+          <span class="mod-badge">Unit 3 — Active</span>
+        </div>
+        <div class="module-card" onclick="startModule('vocab')">
+          <span class="mod-icon-wrap mi-lilac1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
+          <h3>Vocabulary Cards</h3>
+          <p>Flashcard-based word learning</p>
+          <span class="mod-badge">12 new words</span>
+        </div>
+        <div class="module-card" onclick="startModule('quiz')">
+          <span class="mod-icon-wrap mi-lilac2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+          <h3>Daily Quiz</h3>
+          <p>Test your knowledge with MCQs</p>
+          <span class="mod-badge">+20 XP / question</span>
+        </div>
+        <div class="module-card" onclick="startModule('reading')">
+          <span class="mod-icon-wrap mi-ash"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 0-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><line x1="18" y1="14" x2="12" y2="14"/><line x1="18" y1="10" x2="12" y2="10"/><line x1="18" y1="18" x2="12" y2="18"/></svg></span>
+          <h3>Reading Practice</h3>
+          <p>Passages with comprehension questions</p>
+          <span class="mod-badge">3 passages today</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quiz Interface (shown when module starts) -->
+    <div id="quizInterface" style="display:none;">
+      <!-- Top bar -->
+      <div class="quiz-topbar">
+        <button class="btn-back" onclick="showModulePicker()">← Back</button>
+        <div class="quiz-breadcrumb">
+          <span id="quizTitle">Grammar Lessons</span>
+          <span class="breadcrumb-dot">·</span>
+          <span id="quizUnit">Unit 3</span>
+        </div>
+        <span class="xp-badge">+20 XP / question</span>
+      </div>
+
+      <!-- Progress -->
+      <div class="quiz-meta">
+        <div class="quiz-progress-bar">
+          <div class="quiz-progress-fill" id="progressFill"></div>
+        </div>
+        <span id="questionCounter">Question 1 of 8</span>
+      </div>
+
+      <!-- Question -->
+      <div class="question-card">
+        <p class="q-type-tag">MULTIPLE CHOICE</p>
+        <h2 id="questionText">Which Word Correctly Completes the Sentence?</h2>
+        
+        <!-- Reading Passage Box (Only shown for reading practice) -->
+        <div id="readingPassageBox" style="display:none; background:rgba(108,99,255,0.05); border:1px solid rgba(108,99,255,0.2); border-radius:var(--radius); padding:24px; margin-bottom:28px;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px;">
+            <p id="readingPassageText" style="font-size:18px; font-weight:600; color:var(--text-primary); line-height:1.6;"></p>
+            <button class="fc-speak-btn" onclick="speakReadingPassage(false)" style="margin-left:16px; flex-shrink:0;">🔊 Listen</button>
+          </div>
+          <div style="width:100%; height:1px; background:var(--border); margin-bottom:16px;"></div>
+          <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+            <p id="readingTranslationText" style="font-size:15px; color:var(--text-secondary); line-height:1.5; font-style:italic;"></p>
+            <button class="fc-speak-btn" onclick="speakReadingPassage(true)" style="margin-left:16px; flex-shrink:0;">🔊 English</button>
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 24px;">
+          <div class="sentence-box" id="sentenceBox" style="margin-bottom:0; flex-grow: 1;">
+            She ________ goes to the library every day after school.
+          </div>
+          <button class="fc-speak-btn" onclick="speakSentence()" style="margin-left:16px; margin-top:4px; flex-shrink:0;">🔊 Listen</button>
+        </div>
+
+        <!-- Answer Options -->
+        <div class="options-grid" id="optionsGrid">
+          <!-- Filled by JS -->
+        </div>
+
+        <button class="skip-btn" onclick="skipQuestion()">Skip question</button>
+      </div>
+
+      <!-- Feedback overlay -->
+      <div id="feedback" class="feedback-overlay" style="display:none;">
+        <div class="feedback-box" id="feedbackBox">
+          <span id="feedbackIcon">✅</span>
+          <p id="feedbackText">Correct!</p>
+          <button class="btn-primary" onclick="nextQuestion()">Next Question →</button>
+        </div>
+      </div>
+
+      <!-- Bottom nav -->
+      <div class="module-nav-bar">
+        <button class="mod-nav-btn" onclick="showModulePicker()">← Back to Modules</button>
+        <button class="mod-nav-btn" onclick="showModulePicker()">Reading Practice →</button>
+      </div>
+    </div>
+
+    <!-- ══════ FLASHCARD INTERFACE (Vocabulary Cards) ══════ -->
+    <div id="flashcardInterface" style="display:none;">
+      <!-- Top bar -->
+      <div class="quiz-topbar">
+        <button class="btn-back" onclick="showModulePicker()">← Back</button>
+        <div class="quiz-breadcrumb">
+          <span>Vocabulary Cards</span>
+          <span class="breadcrumb-dot">·</span>
+          <span id="fcUnit">Learn New Words</span>
+        </div>
+        <span class="xp-badge" style="background:rgba(0,217,163,0.15);color:var(--accent-green);">+10 XP / card</span>
+      </div>
+
+      <!-- Progress bar -->
+      <div class="quiz-meta">
+        <div class="quiz-progress-bar">
+          <div class="quiz-progress-fill" id="fcProgressFill" style="background:var(--accent-green);"></div>
+        </div>
+        <span id="fcCounter">Card 1 of 12</span>
+      </div>
+
+      <!-- Stats row -->
+      <div class="fc-stats-row">
+        <div class="fc-stat known">
+          <span id="knownCount">0</span>
+          <p>✅ Got it</p>
+        </div>
+        <div class="fc-stat unknown">
+          <span id="unknownCount">0</span>
+          <p>🔄 Practice more</p>
+        </div>
+        <div class="fc-stat remaining">
+          <span id="remainingCount">12</span>
+          <p>📚 Remaining</p>
+        </div>
+      </div>
+
+      <!-- The Flashcard -->
+      <div class="fc-scene">
+        <div class="fc-card" id="flashcard" onclick="flipFlashcard()">
+          <!-- FRONT: shows word -->
+          <div class="fc-front">
+            <p class="fc-hint-top">Tap to reveal meaning</p>
+            <div class="fc-word" id="fcWord">桜</div>
+            <div class="fc-phonetic" id="fcPhonetic">Sa · ku · ra</div>
+            <div class="fc-part-of-speech" id="fcPos">noun</div>
+            <button class="fc-speak-btn" id="fcSpeakBtn" onclick="fcSpeak(event)">
+              🔊 Hear pronunciation
+            </button>
+          </div>
+          <!-- BACK: shows meaning & example -->
+          <div class="fc-back">
+            <p class="fc-meaning-label">MEANING</p>
+            <div class="fc-meaning" id="fcMeaning">Cherry Blossom</div>
+            <div class="fc-divider-line"></div>
+            <p class="fc-example-label">EXAMPLE SENTENCE</p>
+            <p class="fc-example" id="fcExample">桜の花が咲いています。</p>
+            <p class="fc-translation" id="fcTranslation">The cherry blossoms are blooming.</p>
+            <button class="fc-speak-btn fc-speak-back" onclick="fcSpeakExample(event)">
+              🔊 Hear example
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action buttons (show after flip) -->
+      <div class="fc-actions" id="fcActions" style="display:none;">
+        <button class="fc-btn fc-btn-no" onclick="fcAnswer(false)">
+          🔄 Practice Again
+        </button>
+        <button class="fc-btn fc-btn-yes" onclick="fcAnswer(true)">
+          ✅ Got it!
+        </button>
+      </div>
+
+      <!-- Hint before flip -->
+      <p class="fc-tap-hint" id="fcTapHint">Click the card to flip and see the meaning</p>
+    </div>
+
+  </main>
+</div>
+<script src="../js/linguova-stats.js"></script>
+<script src="../js/modules.js"></script>
+</body>
+</html>

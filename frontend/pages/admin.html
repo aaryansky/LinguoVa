@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard — LinguoVa</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+<div class="admin-layout">
+  <!-- Admin Sidebar -->
+  <aside class="admin-sidebar">
+    <div class="sidebar-logo">
+      <span class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#EDADC7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+      <div>
+        <span class="logo-text">LinguoVa</span>
+        <span class="admin-badge">Admin</span>
+      </div>
+    </div>
+    <nav id="adminNav">
+      <p class="nav-label">Management</p>
+      <a class="nav-item active" data-tab="overview">
+        <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg></span>Overview
+      </a>
+      <a class="nav-item" data-tab="users">
+        <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>Users
+      </a>
+      <a class="nav-item" data-tab="curriculum">
+        <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>Curriculum
+      </a>
+      <a class="nav-item" data-tab="ai-logs">
+        <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg></span>AI Logs
+      </a>
+      <p class="nav-label">Settings</p>
+      <a class="nav-item" data-tab="config">
+        <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg></span>Platform Config
+      </a>
+
+    </nav>
+    <div class="sidebar-user">
+      <div class="user-avatar" id="adminInitials">AK</div>
+      <div>
+        <p class="user-name" id="adminName">Admin</p>
+        <p class="user-level" style="color:var(--blush)">⬤ Admin Access</p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content Container -->
+  <main class="admin-main">
+    
+    <!-- 1. OVERVIEW TAB -->
+    <section id="overview-tab" class="tab-content active">
+      <div class="admin-header">
+        <div>
+          <h1>Platform Overview</h1>
+          <p style="color:var(--text-secondary);font-size:14px;margin-top:4px;">Real-time metrics for LinguoVa</p>
+        </div>
+        <div style="display:flex;gap:12px;align-items:center;">
+          <span style="font-size:13px;color:var(--text-secondary);">Last updated: just now</span>
+          <span class="badge badge-green">● Live</span>
+        </div>
+      </div>
+
+      <!-- KPI Cards -->
+      <div class="admin-kpi-grid">
+        <div class="admin-kpi-card">
+          <div class="admin-kpi-icon" style="background:rgba(237,173,199,0.18);color:#EDADC7">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <p class="admin-kpi-val" id="totalUsers">–</p>
+            <p class="admin-kpi-label">Total Users</p>
+          </div>
+          <span class="kpi-trend up">+12%</span>
+        </div>
+        <div class="admin-kpi-card">
+          <div class="admin-kpi-icon" style="background:rgba(196,147,176,0.18);color:#C493B0">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div>
+            <p class="admin-kpi-val" id="activeToday">–</p>
+            <p class="admin-kpi-label">Active Today</p>
+          </div>
+          <span class="kpi-trend up">+8%</span>
+        </div>
+        <div class="admin-kpi-card">
+          <div class="admin-kpi-icon" style="background:rgba(209,153,182,0.18);color:#D199B6">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div>
+            <p class="admin-kpi-val">6</p>
+            <p class="admin-kpi-label">Languages</p>
+          </div>
+        </div>
+        <div class="admin-kpi-card">
+          <div class="admin-kpi-icon" style="background:rgba(166,139,165,0.18);color:#A68BA5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
+          <div>
+            <p class="admin-kpi-val" id="avgAccuracy">74%</p>
+            <p class="admin-kpi-label">Avg Accuracy</p>
+          </div>
+          <span class="kpi-trend down">-2%</span>
+        </div>
+      </div>
+
+      <!-- Charts Row -->
+      <div class="admin-charts-row">
+        <!-- DAU Chart -->
+        <div class="card admin-chart-card">
+          <div class="chart-header">
+            <h3>Daily Active Users</h3>
+            <span class="badge badge-primary">Last 7 days</span>
+          </div>
+          <canvas id="dauChart" height="200"></canvas>
+        </div>
+        <!-- Language Popularity -->
+        <div class="card admin-chart-card">
+          <div class="chart-header">
+            <h3>Language Popularity</h3>
+            <span class="badge badge-primary">All Users</span>
+          </div>
+          <canvas id="langChart" height="200"></canvas>
+        </div>
+      </div>
+
+      <!-- Recent Users Table -->
+      <div class="card admin-table-card">
+        <div class="table-header">
+          <h3>Recent Registrations</h3>
+          <div style="position:relative; display:inline-block;">
+            <input type="text" class="input-field" id="recentSearch" placeholder="Search recent users..." style="width:220px; padding:8px 12px 8px 32px; font-size:13px;">
+            <span style="position:absolute; left:10px; top:50%; transform:translateY(-50%); color:var(--lilac-ash); pointer-events:none; display:flex; align-items:center;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </span>
+          </div>
+        </div>
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Language</th>
+              <th>Level</th>
+              <th>XP</th>
+              <th>Joined</th>
+            </tr>
+          </thead>
+          <tbody id="usersTableBody">
+            <!-- Filled by JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 2. USERS TAB -->
+    <section id="users-tab" class="tab-content" style="display:none;">
+      <div class="admin-header">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div class="section-title-icon" style="background:rgba(237,173,199,0.18); color:#EDADC7; padding:8px; border-radius:10px; display:flex;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <h1>User Directory</h1>
+            <p style="color:var(--text-secondary);font-size:14px;margin-top:4px;">Manage all registered accounts, roles, and learning statistics</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card admin-table-card">
+        <div class="table-header" style="flex-wrap:wrap; gap:12px;">
+          <div style="position:relative; display:flex; flex:1; min-width:250px; max-width:320px;">
+            <input type="text" class="input-field" id="userSearch" placeholder="Search by name or email..." style="padding-left:36px;">
+            <span style="position:absolute; left:12px; top:50%; transform:translateY(-50%); color:var(--lilac-ash); pointer-events:none; display:flex; align-items:center;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </span>
+          </div>
+          <div style="display:flex; gap:8px;">
+            <select class="input-field" id="filterLanguage" style="width:140px; padding: 4px 8px;">
+              <option value="">All Languages</option>
+              <option value="Japanese">Japanese</option>
+              <option value="French">French</option>
+              <option value="Spanish">Spanish</option>
+              <option value="German">German</option>
+              <option value="Italian">Italian</option>
+              <option value="Hindi">Hindi</option>
+            </select>
+            <select class="input-field" id="filterLevel" style="width:130px; padding: 4px 8px;">
+              <option value="">All Levels</option>
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
+            </select>
+            <select class="input-field" id="filterRole" style="width:120px; padding: 4px 8px;">
+              <option value="">All Roles</option>
+              <option value="user">User</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
+        </div>
+
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Language</th>
+              <th>Level</th>
+              <th>Stats (XP / Streak)</th>
+              <th>Role</th>
+              <th>Joined</th>
+              <th style="text-align:right;">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="allUsersTableBody">
+            <!-- Populated dynamically -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 3. CURRICULUM TAB -->
+    <section id="curriculum-tab" class="tab-content" style="display:none;">
+      <div class="admin-header">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div class="section-title-icon" style="background:rgba(196,147,176,0.18); color:#C493B0; padding:8px; border-radius:10px; display:flex;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <div>
+            <h1>Curriculum Management</h1>
+            <p style="color:var(--text-secondary);font-size:14px;margin-top:4px;">Modify course levels, vocabulary flashcards, and grammar questions</p>
+          </div>
+        </div>
+        <div style="display:flex; gap:10px;">
+          <select class="input-field" id="curriculumLangSelect" style="width:180px;">
+            <option value="Japanese">🇯🇵 Japanese</option>
+            <option value="French">🇫🇷 French</option>
+            <option value="Spanish">🇪🇸 Spanish</option>
+            <option value="German">🇩🇪 German</option>
+            <option value="Italian">🇮🇹 Italian</option>
+            <option value="Hindi">🇮🇳 Hindi</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Curriculum subtabs toggle -->
+      <div class="subtabs-bar" style="margin-bottom:20px; display:flex; gap:12px; border-bottom:1px solid var(--border); padding-bottom:10px;">
+        <button class="subtab-btn active" data-subtab="vocab" style="display:flex; align-items:center; gap:8px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+          Vocabulary Cards
+        </button>
+        <button class="subtab-btn" data-subtab="grammar" style="display:flex; align-items:center; gap:8px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/><circle cx="12" cy="12" r="10"/></svg>
+          Grammar Questions
+        </button>
+      </div>
+
+      <!-- Vocabulary cards subtab -->
+      <div id="vocab-subtab" class="subtab-content">
+        <div class="card admin-table-card">
+          <div class="table-header">
+            <h3>Vocabulary Flashcards</h3>
+            <button class="btn-primary" id="btnOpenAddVocab" style="padding: 8px 16px; font-size:13px; background:var(--lilac-2); display:flex; align-items:center; gap:6px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Add Word
+            </button>
+          </div>
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Word</th>
+                <th>Phonetic</th>
+                <th>POS</th>
+                <th>Meaning</th>
+                <th>Example Sentence</th>
+                <th>Translation</th>
+                <th style="text-align:right;">Action</th>
+              </tr>
+            </thead>
+            <tbody id="vocabTableBody">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Grammar questions subtab -->
+      <div id="grammar-subtab" class="subtab-content" style="display:none;">
+        <div class="card admin-table-card">
+          <div class="table-header">
+            <h3>Grammar Quiz Questions</h3>
+            <button class="btn-primary" id="btnOpenAddGrammar" style="padding: 8px 16px; font-size:13px; background:var(--lilac-2); display:flex; align-items:center; gap:6px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Add Question
+            </button>
+          </div>
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th style="width:25%;">Question / Instruction</th>
+                <th style="width:25%;">Sentence (Context)</th>
+                <th style="width:30%;">Options</th>
+                <th style="width:10%;">Correct Answer</th>
+                <th style="width:10%; text-align:right;">Action</th>
+              </tr>
+            </thead>
+            <tbody id="grammarTableBody">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. AI LOGS TAB -->
+    <section id="ai-logs-tab" class="tab-content" style="display:none;">
+      <div class="admin-header">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div class="section-title-icon" style="background:rgba(209,153,182,0.18); color:#D199B6; padding:8px; border-radius:10px; display:flex;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+          </div>
+          <div>
+            <h1>AI Query Logs</h1>
+            <p style="color:var(--text-secondary);font-size:14px;margin-top:4px;">Audit trail of user chat sessions and learning recommendations powered by Gemini</p>
+          </div>
+        </div>
+        <button class="btn-primary" id="btnClearAILogs" style="padding: 8px 16px; font-size:13px; background:var(--blush); color:var(--charcoal); display:flex; align-items:center; gap:6px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>
+          Clear Log History
+        </button>
+      </div>
+
+      <!-- AI KPIs -->
+      <div class="admin-kpi-grid" style="margin-bottom: 24px; grid-template-columns: repeat(3, 1fr);">
+        <div class="admin-kpi-card">
+          <div class="admin-kpi-icon" style="background:rgba(237,173,199,0.18);color:#EDADC7">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/><rect x="11" y="15" width="2" height="3"/></svg>
+          </div>
+          <div>
+            <p class="admin-kpi-val" id="aiTotalCalls">0</p>
+            <p class="admin-kpi-label">Total AI Queries</p>
+          </div>
+        </div>
+        <div class="admin-kpi-card">
+          <div class="admin-kpi-icon" style="background:rgba(196,147,176,0.18);color:#C493B0">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div>
+            <p class="admin-kpi-val" id="aiStatus">100%</p>
+            <p class="admin-kpi-label">Gemini Success Rate</p>
+          </div>
+        </div>
+        <div class="admin-kpi-card">
+          <div class="admin-kpi-icon" style="background:rgba(209,153,182,0.18);color:#D199B6">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <p class="admin-kpi-val" id="aiAvgResponse">2.1s</p>
+            <p class="admin-kpi-label">Avg Response Speed</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Logs Table -->
+      <div class="card admin-table-card">
+        <div class="table-header">
+          <h3>Recent Interactions</h3>
+          <div style="position:relative; display:inline-block;">
+            <input type="text" class="input-field" id="aiLogSearch" placeholder="Search prompts or responses..." style="width:250px; padding-left:32px;">
+            <span style="position:absolute; left:10px; top:50%; transform:translateY(-50%); color:var(--lilac-ash); pointer-events:none; display:flex; align-items:center;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </span>
+          </div>
+        </div>
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th style="width:15%">User</th>
+              <th style="width:12%">Lang / Level</th>
+              <th style="width:25%">User Message</th>
+              <th style="width:25%">Gemini Response</th>
+              <th style="width:13%">Model</th>
+              <th style="width:10%">Timestamp</th>
+            </tr>
+          </thead>
+          <tbody id="aiLogsTableBody">
+            <!-- Dynamically populated -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 5. PLATFORM CONFIG TAB -->
+    <section id="config-tab" class="tab-content" style="display:none;">
+      <div class="admin-header">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div class="section-title-icon" style="background:rgba(166,139,165,0.18); color:#A68BA5; padding:8px; border-radius:10px; display:flex;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+          </div>
+          <div>
+            <h1>Platform Configuration</h1>
+            <p style="color:var(--text-secondary);font-size:14px;margin-top:4px;">Manage global application variables, default rewards, models, and states</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="config-grid">
+        <div class="card" style="margin-bottom:20px;">
+          <h2 style="font-size:17px; font-weight:700; margin-bottom:20px; color:var(--charcoal); display:flex; align-items:center; gap:8px;">
+            <span style="color:var(--lilac-2); display:flex;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg></span>
+            AI Integration Settings
+          </h2>
+          <form id="configAiForm">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+              <div>
+                <label class="form-label">Primary Gemini Model</label>
+                <select class="input-field" id="cfgActiveModel">
+                  <option value="gemini-1.5-flash">gemini-1.5-flash (Recommended)</option>
+                  <option value="gemini-2.0-flash">gemini-2.0-flash</option>
+                  <option value="gemini-2.5-flash">gemini-2.5-flash</option>
+                  <option value="gemini-2.0-flash-lite">gemini-2.0-flash-lite</option>
+                  <option value="gemini-1.5-pro">gemini-1.5-pro</option>
+                </select>
+              </div>
+              <div>
+                <label class="form-label">Quota Mode</label>
+                <select class="input-field" id="cfgQuotaMode">
+                  <option value="unlimited">Unlimited (Free Tier Fallback)</option>
+                  <option value="restricted">Restricted (50 requests/day per user)</option>
+                </select>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="card" style="margin-bottom:20px;">
+          <h2 style="font-size:17px; font-weight:700; margin-bottom:20px; color:var(--charcoal); display:flex; align-items:center; gap:8px;">
+            <span style="color:var(--lilac-2); display:flex;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+            Gamification & XP Rules
+          </h2>
+          <form id="configRewardsForm">
+            <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin-bottom:16px;">
+              <div>
+                <label class="form-label">Daily XP Goal</label>
+                <input type="number" class="input-field" id="cfgDailyGoal" value="50">
+              </div>
+              <div>
+                <label class="form-label">Signup Bonus XP</label>
+                <input type="number" class="input-field" id="cfgSignupBonus" value="100">
+              </div>
+              <div>
+                <label class="form-label">Words Learned reward (XP)</label>
+                <input type="number" class="input-field" id="cfgWordXp" value="10">
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="card">
+          <h2 style="font-size:17px; font-weight:700; margin-bottom:20px; color:var(--charcoal); display:flex; align-items:center; gap:8px;">
+            <span style="color:var(--lilac-2); display:flex;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+            Maintenance & Security
+          </h2>
+          <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(237,173,199,0.1); border:1px dashed var(--blush); padding:16px; border-radius:var(--radius-sm);">
+            <div>
+              <p style="font-weight:600; color:var(--charcoal); font-size:14px;">Platform Maintenance Mode</p>
+              <p style="font-size:12px; color:var(--lilac-ash); margin-top:2px;">Redirects all non-admin users to a maintenance screen</p>
+            </div>
+            <label class="switch-toggle">
+              <input type="checkbox" id="cfgMaintenance">
+              <span class="slider-toggle"></span>
+            </label>
+          </div>
+        </div>
+
+        <div style="margin-top:24px; display:flex; justify-content:flex-end;">
+          <button class="btn-primary" id="btnSaveConfig" style="width:220px; background:var(--lilac-2); display:flex; align-items:center; justify-content:center; gap:8px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+            Save Configurations
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. ADMIN PROFILE TAB -->
+    <section id="profile-tab" class="tab-content" style="display:none;">
+      <div class="admin-header">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div class="section-title-icon" style="background:rgba(237,173,199,0.18); color:#EDADC7; padding:8px; border-radius:10px; display:flex;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div>
+            <h1>Admin Profile</h1>
+            <p style="color:var(--text-secondary);font-size:14px;margin-top:4px;">Manage your administrator profile details and session</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-hero card" style="display:flex; align-items:center; gap:24px; padding:32px; background:#FFFFFF; border:1px solid var(--border); border-radius:var(--radius); margin-bottom:24px; box-shadow:0 2px 8px rgba(166,139,165,0.05);">
+        <div class="profile-avatar-big" id="profileInitials" style="width:72px; height:72px; border-radius:50%; background:linear-gradient(135deg, var(--blush), var(--lilac-2)); display:flex; align-items:center; justify-content:center; font-size:24px; font-weight:700; color:#FFFFFF; flex-shrink:0;">RK</div>
+        <div class="profile-info">
+          <h2 id="profileName" style="font-size:20px; font-weight:700; color:var(--charcoal);">Rahul Kumar</h2>
+          <p id="profileEmail" style="color:var(--text-secondary); font-size:14px; margin-top:4px;">rahul@example.com</p>
+          <div style="display:flex; gap:10px; margin-top:12px;">
+            <span class="badge badge-green" style="background:rgba(237,173,199,0.2); color:var(--blush); font-weight:700; border-radius:99px; padding:4px 12px; font-size:12px;">⬤ Platform Administrator</span>
+          </div>
+        </div>
+        <button class="btn-primary" id="btnAdminLogout" style="margin-left:auto; padding:10px 20px; font-size:14px; background:var(--blush); color:var(--charcoal); font-weight:600; border-radius:8px; border:none; cursor:pointer; display:flex; align-items:center; gap:6px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          Sign Out
+        </button>
+      </div>
+
+      <!-- Admin Details & Logs Summary Card -->
+      <div class="card" style="background:#FFFFFF; border:1px solid var(--border); border-radius:var(--radius); padding:24px; box-shadow:0 2px 8px rgba(166,139,165,0.05);">
+        <h3 style="font-size:16px; font-weight:700; margin-bottom:20px; color:var(--charcoal); display:flex; align-items:center; gap:8px;">
+          <span style="color:var(--lilac-2); display:flex;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span>
+          Administrator System Scope
+        </h3>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+          <div>
+            <p style="font-weight:600; font-size:13px; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.05em;">Role Permissions</p>
+            <ul style="margin-top:10px; padding-left:20px; font-size:13px; color:var(--charcoal); line-height:1.8;">
+              <li>Full Read/Write Access to Curriculum</li>
+              <li>User Database CRUD Actions & Role Swaps</li>
+              <li>Global Platform Configuration Management</li>
+              <li>Audit Log Inspections & History Purges</li>
+            </ul>
+          </div>
+          <div>
+            <p style="font-weight:600; font-size:13px; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.05em;">Security Audit Profile</p>
+            <div style="margin-top:12px; display:flex; flex-direction:column; gap:8px; font-size:13px;">
+              <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border); padding-bottom:6px;">
+                <span style="color:var(--lilac-ash);">Session Status</span>
+                <span style="font-weight:600; color:var(--accent-green);">Active & Secure</span>
+              </div>
+              <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border); padding-bottom:6px;">
+                <span style="color:var(--lilac-ash);">Security Level</span>
+                <span style="font-weight:600; color:var(--lilac-2);">Level-3 Root</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- Modal: Edit Stats -->
+<div class="admin-modal-overlay" id="editUserModal" style="display:none;">
+  <div class="admin-modal-box">
+    <div class="modal-header">
+      <h3>Edit User Details</h3>
+      <button class="modal-close" onclick="closeModal('editUserModal')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="editUserId">
+      <div style="margin-bottom:12px;">
+        <label class="form-label">Full Name</label>
+        <input type="text" class="input-field" id="editUserName">
+      </div>
+      <div style="margin-bottom:12px;">
+        <label class="form-label">Email</label>
+        <input type="email" class="input-field" id="editUserEmail">
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;">
+        <div>
+          <label class="form-label">Language</label>
+          <select class="input-field" id="editUserLang">
+            <option value="Japanese">Japanese</option>
+            <option value="French">French</option>
+            <option value="Spanish">Spanish</option>
+            <option value="German">German</option>
+            <option value="Italian">Italian</option>
+            <option value="Hindi">Hindi</option>
+          </select>
+        </div>
+        <div>
+          <label class="form-label">Level</label>
+          <select class="input-field" id="editUserLevel">
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
+          </select>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:10px; margin-bottom:16px;">
+        <div>
+          <label class="form-label">XP</label>
+          <input type="number" class="input-field" id="editUserXp">
+        </div>
+        <div>
+          <label class="form-label">Streak</label>
+          <input type="number" class="input-field" id="editUserStreak">
+        </div>
+        <div>
+          <label class="form-label">Words</label>
+          <input type="number" class="input-field" id="editUserWords">
+        </div>
+        <div>
+          <label class="form-label">Accuracy (%)</label>
+          <input type="number" class="input-field" id="editUserAccuracy">
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-primary" style="background:#8A7B96; padding:8px 16px; font-size:13px;" onclick="closeModal('editUserModal')">Cancel</button>
+      <button class="btn-primary" style="background:var(--lilac-2); padding:8px 16px; font-size:13px;" id="btnSaveUserEdit">Save Changes</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Add Vocab -->
+<div class="admin-modal-overlay" id="addVocabModal" style="display:none;">
+  <div class="admin-modal-box">
+    <div class="modal-header">
+      <h3>Add Vocabulary Card</h3>
+      <button class="modal-close" onclick="closeModal('addVocabModal')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;">
+        <div>
+          <label class="form-label">Word (in target alphabet)</label>
+          <input type="text" class="input-field" id="addVocabWord" placeholder="e.g. 桜 / Maison">
+        </div>
+        <div>
+          <label class="form-label">Phonetic guide</label>
+          <input type="text" class="input-field" id="addVocabPhonetic" placeholder="e.g. Sa · ku · ra">
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;">
+        <div>
+          <label class="form-label">Part of Speech</label>
+          <input type="text" class="input-field" id="addVocabPos" placeholder="e.g. noun, verb, greeting">
+        </div>
+        <div>
+          <label class="form-label">English Meaning</label>
+          <input type="text" class="input-field" id="addVocabMeaning" placeholder="e.g. Cherry Blossom">
+        </div>
+      </div>
+      <div style="margin-bottom:12px;">
+        <label class="form-label">Example Sentence (in target language)</label>
+        <input type="text" class="input-field" id="addVocabExample" placeholder="e.g. 桜の花が咲いています。">
+      </div>
+      <div style="margin-bottom:12px;">
+        <label class="form-label">English Translation</label>
+        <input type="text" class="input-field" id="addVocabTranslation" placeholder="e.g. The cherry blossoms are blooming.">
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-primary" style="background:#8A7B96; padding:8px 16px; font-size:13px;" onclick="closeModal('addVocabModal')">Cancel</button>
+      <button class="btn-primary" style="background:var(--lilac-2); padding:8px 16px; font-size:13px;" id="btnSaveAddVocab">Add Word</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Add Grammar -->
+<div class="admin-modal-overlay" id="addGrammarModal" style="display:none;">
+  <div class="admin-modal-box">
+    <div class="modal-header">
+      <h3>Add Grammar Question</h3>
+      <button class="modal-close" onclick="closeModal('addGrammarModal')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div style="margin-bottom:12px;">
+        <label class="form-label">Instruction / Question</label>
+        <input type="text" class="input-field" id="addGrammarQuest" placeholder="e.g. Choose the correct particle:">
+      </div>
+      <div style="margin-bottom:12px;">
+        <label class="form-label">Sentence Context (with blank ________)</label>
+        <input type="text" class="input-field" id="addGrammarSent" placeholder="e.g. 私 ________ 学生です。 (I am a student)">
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;">
+        <div>
+          <label class="form-label">Option 1</label>
+          <input type="text" class="input-field" id="addGrammarOpt0" placeholder="Required option">
+        </div>
+        <div>
+          <label class="form-label">Option 2</label>
+          <input type="text" class="input-field" id="addGrammarOpt1" placeholder="Required option">
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;">
+        <div>
+          <label class="form-label">Option 3</label>
+          <input type="text" class="input-field" id="addGrammarOpt2" placeholder="Optional option">
+        </div>
+        <div>
+          <label class="form-label">Option 4</label>
+          <input type="text" class="input-field" id="addGrammarOpt3" placeholder="Optional option">
+        </div>
+      </div>
+      <div style="margin-bottom:12px;">
+        <label class="form-label">Correct Answer Index (0-based: 0 for Opt 1, 1 for Opt 2, etc.)</label>
+        <select class="input-field" id="addGrammarAnswer">
+          <option value="0">Option 1</option>
+          <option value="1">Option 2</option>
+          <option value="2">Option 3</option>
+          <option value="3">Option 4</option>
+        </select>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-primary" style="background:#8A7B96; padding:8px 16px; font-size:13px;" onclick="closeModal('addGrammarModal')">Cancel</button>
+      <button class="btn-primary" style="background:var(--lilac-2); padding:8px 16px; font-size:13px;" id="btnSaveAddGrammar">Add Question</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../js/admin.js"></script>
+</body>
+</html>

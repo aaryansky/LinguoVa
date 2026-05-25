@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account — LinguoVa</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/auth.css">
+  <link rel="stylesheet" href="../css/register.css">
+</head>
+<body>
+  <div class="register-container">
+    <div class="register-card">
+
+      <!-- Logo -->
+      <div class="reg-logo">
+        <span>🌐</span>
+        <span class="brand-name">LinguoVa</span>
+      </div>
+
+      <h2>Create Your Free Account</h2>
+      <p class="auth-sub">Start your language learning journey today</p>
+
+      <form id="registerForm">
+        <!-- Name + Email row -->
+        <div class="reg-row">
+          <div class="form-group">
+            <label>FULL NAME</label>
+            <input type="text" id="name" class="input-field" placeholder="Aryan Kumar">
+          </div>
+          <div class="form-group">
+            <label>EMAIL ADDRESS</label>
+            <input type="email" id="email" class="input-field" placeholder="you@example.com">
+          </div>
+        </div>
+
+        <!-- Password row -->
+        <div class="reg-row">
+          <div class="form-group">
+            <label>PASSWORD</label>
+            <input type="password" id="password" class="input-field" placeholder="Min 6 characters">
+          </div>
+          <div class="form-group">
+            <label>CONFIRM PASSWORD</label>
+            <input type="password" id="confirmPassword" class="input-field" placeholder="Repeat password">
+          </div>
+        </div>
+
+        <!-- Language picker -->
+        <div class="form-group">
+          <label>🎯 CHOOSE YOUR FIRST LANGUAGE</label>
+          <div class="lang-picker" id="langPicker">
+            <button type="button" class="lang-btn active" data-lang="Japanese">🇯🇵 Japanese</button>
+            <button type="button" class="lang-btn" data-lang="French">🇫🇷 French</button>
+            <button type="button" class="lang-btn" data-lang="Spanish">🇪🇸 Spanish</button>
+            <button type="button" class="lang-btn" data-lang="German">🇩🇪 German</button>
+            <button type="button" class="lang-btn" data-lang="Italian">🇮🇹 Italian</button>
+            <button type="button" class="lang-btn" data-lang="Hindi">🇮🇳 Hindi</button>
+          </div>
+        </div>
+
+        <!-- Level picker -->
+        <div class="form-group">
+          <label>📊 WHAT'S YOUR LEVEL?</label>
+          <div class="level-picker" id="levelPicker">
+            <button type="button" class="level-btn active" data-level="Beginner">
+              <span class="level-icon">🌱</span>
+              <span>Beginner</span>
+            </button>
+            <button type="button" class="level-btn" data-level="Intermediate">
+              <span class="level-icon">📈</span>
+              <span>Intermediate</span>
+            </button>
+            <button type="button" class="level-btn" data-level="Advanced">
+              <span class="level-icon">🔥</span>
+              <span>Advanced</span>
+            </button>
+          </div>
+        </div>
+
+        <p id="reg-error" style="color:var(--accent-red);font-size:13px;display:none;margin-bottom:12px;"></p>
+
+        <button type="submit" class="btn-primary" style="width:100%">Create Account →</button>
+
+        <div class="divider"><span>or</span></div>
+        <button type="button" class="btn-google" id="btnGoogle" style="width:100%; margin-top:16px;">Continue with Google</button>
+
+        <p class="register-link">Already have an account? <a href="../index.html">Sign In</a></p>
+      </form>
+    </div>
+  </div>
+  <script src="../js/register.js"></script>
+</body>
+</html>

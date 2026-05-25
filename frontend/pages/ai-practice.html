@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Practice — LinguoVa</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/ai-practice.css">
+  <style>
+    .mic-btn {
+      background: transparent; border: none; cursor: pointer;
+      padding: 0 10px; color: var(--text-secondary); transition: color 0.2s;
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+    .mic-btn:hover { color: var(--lilac-2); }
+    .mic-btn.recording { color: var(--lilac-1); animation: pulse 1s infinite; }
+    @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.15); } 100% { transform: scale(1); } }
+    .mode-tab { display: inline-flex; align-items: center; gap: 6px; }
+    
+    .tts-btn {
+      background: transparent; border: none; cursor: pointer; font-size: 1rem;
+      padding: 0 5px; color: var(--text-secondary); opacity: 0.7; transition: all 0.2s;
+      vertical-align: middle; margin-left: 5px;
+    }
+    .tts-btn:hover { opacity: 1; color: var(--primary); transform: scale(1.1); }
+  </style>
+</head>
+<body>
+<div class="app-layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo"><span class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EDADC7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span><span class="logo-text">LinguoVa</span></div>
+    <nav>
+      <p class="nav-label">Learn</p>
+      <a href="dashboard.html" class="nav-item"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>Dashboard</a>
+      <a href="modules.html" class="nav-item"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>Learning Modules</a>
+      <a href="ai-practice.html" class="nav-item active"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>AI Practice</a>
+      <a href="daily-words.html" class="nav-item"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>Daily Words</a>
+      <a href="leaderboard.html" class="nav-item"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 20 18 10"/><polyline points="12 20 12 4"/><polyline points="6 20 6 14"/></svg></span>Leaderboard</a>
+      <p class="nav-label">Account</p>
+      <a href="settings.html" class="nav-item"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>Settings</a>
+    </nav>
+    <a href="profile.html" class="sidebar-user">
+      <div class="user-avatar" id="userInitials">AK</div>
+      <div>
+        <p class="user-name" id="userName">Aryan Kumar</p>
+        <p class="user-level" id="userLevel">Beginner</p>
+      </div>
+    </a>
+  </aside>
+
+  <main class="main-content ai-main-wrap">
+
+    <!-- Header -->
+    <div class="dash-header" style="margin-bottom: 24px;">
+      <h1 id="greeting" style="font-size:24px;display:flex;align-items:center;gap:10px;"><span class="mod-icon-wrap mi-lilac2" style="width:38px;height:38px;border-radius:10px;margin-bottom:0;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>AI Conversation Practice</h1>
+      <select class="badge badge-primary" id="langSelect" style="background-color: var(--primary); color: white; border: none; outline: none; cursor: pointer; font-family: inherit; font-size: inherit; appearance: none; -webkit-appearance: none; padding-right: 24px; background-image: url('data:image/svg+xml;utf8,<svg fill=%22white%22 height=%2224%22 viewBox=%220 0 24 24%22 width=%2224%22 xmlns=%22http://www.w3.org/2000/svg%22><path d=%22M7 10l5 5 5-5z%22/><path d=%22M0 0h24v24H0z%22 fill=%22none%22/></svg>'); background-repeat: no-repeat; background-position-x: 100%; background-position-y: 50%;">
+        <option value="Japanese">🇯🇵 Japanese</option>
+        <option value="French">🇫🇷 French</option>
+        <option value="Spanish">🇪🇸 Spanish</option>
+        <option value="German">🇩🇪 German</option>
+        <option value="Italian">🇮🇹 Italian</option>
+        <option value="Hindi">🇮🇳 Hindi</option>
+      </select>
+    </div>
+
+    <!-- MODE TABS -->
+    <div class="mode-tabs">
+      <button class="mode-tab active" id="tabFree" onclick="switchMode('free')">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Free Practice
+      </button>
+      <button class="mode-tab" id="tabScenario" onclick="switchMode('scenario')">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/></svg>
+        Scenario Practice
+      </button>
+    </div>
+
+    <!-- ══════════ FREE PRACTICE MODE ══════════ -->
+    <div id="modeFree" class="ai-main">
+      <!-- Chat Panel -->
+      <div class="chat-panel">
+        <div class="chat-header">
+          <div class="coach-info">
+            <div class="coach-avatar" style="background:linear-gradient(135deg,#EDADC7,#D199B6);"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <div>
+              <h2 id="coachName">Coach Emma</h2>
+              <p class="coach-sub" id="coachSub">AI Language Tutor</p>
+            </div>
+          </div>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <button class="btn-back audio-pause-btn" onclick="toggleAudioPause()" title="Pause/Resume speaking" style="background:transparent; border:1px solid var(--border); color:var(--text-secondary); padding:4px 10px; border-radius:6px; cursor:pointer; display:flex; align-items:center; gap:5px; font-size:13px;"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg> Pause</button>
+            <span class="badge badge-green">● Live</span>
+          </div>
+        </div>
+        <div class="chat-messages" id="freeMessages">
+          <!-- Populated by JS -->
+        </div>
+        <div class="chat-input-area" style="display:flex; align-items:center;">
+          <button class="mic-btn" id="freeMicBtn" onclick="toggleSpeech('freeInput', 'freeMicBtn')" title="Click to speak"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></button>
+          <input type="text" id="freeInput" class="chat-input" placeholder="Type a message..." style="flex:1;" />
+          <button class="send-btn" onclick="sendFree()">Send ➤</button>
+        </div>
+      </div>
+
+      <!-- Right Panel -->
+      <div class="ai-sidebar">
+        <div class="card ai-side-card">
+          <h3 style="display:flex;align-items:center;gap:7px;"><span class="mod-icon-wrap mi-lilac1" style="width:26px;height:26px;border-radius:7px;margin-bottom:0;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>Session Vocabulary</h3>
+          <div class="vocab-list" id="vocabList">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+        <div class="card ai-side-card">
+          <h3 style="display:flex;align-items:center;gap:7px;"><span class="mod-icon-wrap mi-blush" style="width:26px;height:26px;border-radius:7px;margin-bottom:0;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>Grammar Hint</h3>
+          <div class="hint-box" id="grammarHintBox">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+        <div class="card ai-side-card">
+          <h3 style="display:flex;align-items:center;gap:7px;"><span class="mod-icon-wrap mi-ash" style="width:26px;height:26px;border-radius:7px;margin-bottom:0;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></span>Pronunciation Score</h3>
+          <div class="pron-score">
+            <div class="score-ring"><span>78%</span></div>
+            <div>
+              <p style="font-weight:600;margin-bottom:4px;">Good progress!</p>
+              <p style="font-size:12px;color:var(--text-secondary);">Keep practicing phrases</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════ SCENARIO PRACTICE MODE ══════════ -->
+    <div id="modeScenario" style="display:none;">
+
+      <!-- Scenario Picker -->
+      <div id="scenarioPicker">
+        <h2 style="font-size:18px;font-weight:700;margin-bottom:6px;">Choose a Scenario</h2>
+        <p style="color:var(--text-secondary);font-size:14px;margin-bottom:24px;">Practice real-life conversations in authentic situations or review saved sessions.</p>
+        
+        <!-- Sub-tabs for scenarios -->
+        <div class="subtabs-bar" style="margin-bottom:20px; display:flex; gap:12px; border-bottom:1px solid var(--border); padding-bottom:10px;">
+          <button class="subtab-btn active" id="btnScenariosTab" onclick="switchScenarioSubtab('picker')" style="background:var(--lilac-2); color:white; border:none; padding:8px 16px; border-radius:var(--radius-sm); font-size:13px; font-weight:600; cursor:pointer; display:inline-flex; align-items:center; gap:6px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            New Scenarios
+          </button>
+          <button class="subtab-btn" id="btnHistoryTab" onclick="switchScenarioSubtab('history')" style="background:transparent; color:var(--text-secondary); border:none; padding:8px 16px; border-radius:var(--radius-sm); font-size:13px; font-weight:500; cursor:pointer; display:inline-flex; align-items:center; gap:6px; transition:all 0.2s;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Saved Reports
+          </button>
+        </div>
+
+        <div id="scenarioGridContainer" class="scenario-grid">
+
+          <div class="scenario-card" onclick="startScenario('cafe')">
+            <span class="mod-icon-wrap mi-blush"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></span>
+            <h3>At the Café</h3>
+            <p>Order drinks and snacks, ask for the menu, pay the bill</p>
+            <span class="sc-tag">Waiter / Customer</span>
+          </div>
+
+          <div class="scenario-card" onclick="startScenario('restaurant')">
+            <span class="mod-icon-wrap mi-lilac1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v4"/><path d="M21 15V2v0a5 5 0 0 0-5 5v8c0 1.1.9 2 2 2h3z"/><path d="M12 11v11"/><path d="M18 17v5"/></svg></span>
+            <h3>Restaurant Dinner</h3>
+            <p>Make a reservation, order food, handle dietary restrictions</p>
+            <span class="sc-tag">Waiter / Customer</span>
+          </div>
+
+          <div class="scenario-card" onclick="startScenario('airport')">
+            <span class="mod-icon-wrap mi-lilac2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3.5c-.5-.5-2.5 0-4 1.5L13.5 8.5 5.3 6.7c-.8-.2-1.6.2-2 1-.3.7-.1 1.5.4 2L9 14l-2.5 2.5L4 16l-2 2 3.5 1.5L7 23l2-2-.5-2.5L11 16l4.3 5.3c.5.5 1.3.7 2 .4.8-.4 1.2-1.2 1-2.1z"/></svg></span>
+            <h3>At the Airport</h3>
+            <p>Check in, ask about gates, handle luggage and boarding</p>
+            <span class="sc-tag">Staff / Traveller</span>
+          </div>
+
+          <div class="scenario-card" onclick="startScenario('hotel')">
+            <span class="mod-icon-wrap mi-ash"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9"/></svg></span>
+            <h3>Hotel Check-In</h3>
+            <p>Book a room, ask about amenities, request help from reception</p>
+            <span class="sc-tag">Receptionist / Guest</span>
+          </div>
+
+          <div class="scenario-card" onclick="startScenario('shopping')">
+            <span class="mod-icon-wrap mi-blush"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+            <h3>Shopping</h3>
+            <p>Ask for sizes, bargain prices, find items in a store</p>
+            <span class="sc-tag">Shopkeeper / Customer</span>
+          </div>
+
+          <div class="scenario-card" onclick="startScenario('doctor')">
+            <span class="mod-icon-wrap mi-lilac1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></span>
+            <h3>Doctor's Visit</h3>
+            <p>Describe symptoms, understand instructions, book follow-up</p>
+            <span class="sc-tag">Doctor / Patient</span>
+          </div>
+
+          <div class="scenario-card" onclick="startScenario('directions')">
+            <span class="mod-icon-wrap mi-lilac2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg></span>
+            <h3>Asking Directions</h3>
+            <p>Find your way in the city, ask locals for help navigating</p>
+            <span class="sc-tag">Local / Tourist</span>
+          </div>
+
+          <div class="scenario-card" onclick="startScenario('interview')">
+            <span class="mod-icon-wrap mi-ash"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+            <h3>Job Interview</h3>
+            <p>Introduce yourself, answer questions, discuss experience</p>
+            <span class="sc-tag">Interviewer / Candidate</span>
+          </div>
+        </div>
+
+        <!-- Scenario History Container -->
+        <div id="scenarioHistoryContainer" style="display:none; margin-top:20px;">
+          <div class="history-grid" id="historyGrid" style="display:grid; grid-template-columns: repeat(3, 1fr); gap:16px;">
+            <!-- Filled dynamically by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Scenario Chat (hidden until scenario selected) -->
+      <div id="scenarioChat" style="display:none;" class="ai-main">
+        <div class="chat-panel">
+          <div class="chat-header">
+            <div class="coach-info">
+              <div class="coach-avatar" id="scAvatar">☕</div>
+              <div>
+                <h2 id="scCharName">Waiter</h2>
+                <p class="coach-sub" id="scContext">Café in Tokyo</p>
+              </div>
+            </div>
+            <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+              <button class="btn-back audio-pause-btn" id="pauseBtn" onclick="toggleAudioPause()" title="Pause/Resume speaking" style="background:transparent; border:1px solid var(--border); color:var(--text-secondary); padding:4px 10px; border-radius:6px; cursor:pointer; display:flex; align-items:center; gap:5px; font-size:13px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                Pause
+              </button>
+              <button class="btn-analyze-scene" id="btnAnalyze" onclick="finishAndAnalyzeScenario()" title="Get Grammatical Evaluation" style="background:var(--lilac-2); border:none; color:white; padding:6px 12px; border-radius:6px; cursor:pointer; display:flex; align-items:center; gap:5px; font-weight:600; font-size:13px; transition:all 0.2s;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                Finish & Analyze
+              </button>
+              <span class="badge badge-green" style="gap:5px;">
+                <span style="width:6px;height:6px;background:var(--lilac-ash);border-radius:50%;display:inline-block;animation:pulse-dot 1.5s infinite;"></span>
+                Live Scenario
+              </span>
+              <button class="btn-change-scene" onclick="backToScenarioPicker()" title="Switch to a different scenario" style="background:transparent; border:1px solid var(--border); color:var(--text-secondary); padding:4px 10px; border-radius:6px; cursor:pointer; display:flex; align-items:center; gap:5px; font-size:13px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+                Change Scene
+              </button>
+            </div>
+
+          </div>
+
+          <!-- Scenario context banner -->
+            <div class="scenario-banner" id="scenarioBanner">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span id="bannerText">You just walked into a traditional Japanese café...</span>
+            </div>
+
+          <div class="chat-messages" id="scenarioMessages"></div>
+
+          <div class="chat-input-area" style="display:flex; align-items:center;">
+            <button class="mic-btn" id="scenarioMicBtn" onclick="toggleSpeech('scenarioInput', 'scenarioMicBtn')" title="Click to speak"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></button>
+            <input type="text" id="scenarioInput" class="chat-input" placeholder="Reply to the scenario character..." style="flex:1;" />
+            <button class="send-btn" onclick="sendScenario()">Send ➤</button>
+          </div>
+        </div>
+
+        <!-- Scenario sidebar -->
+        <div class="ai-sidebar">
+          <div class="card ai-side-card">
+            <h3 style="display:flex;align-items:center;gap:7px;"><span class="mod-icon-wrap mi-lilac2" style="width:26px;height:26px;border-radius:7px;margin-bottom:0;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>Your Role</h3>
+            <p id="userRole" style="font-size:13px;color:var(--text-secondary);line-height:1.6;"></p>
+          </div>
+          <div class="card ai-side-card">
+            <h3 style="display:flex;align-items:center;gap:7px;"><span class="mod-icon-wrap mi-blush" style="width:26px;height:26px;border-radius:7px;margin-bottom:0;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>Useful Phrases</h3>
+            <div id="usefulPhrases" class="vocab-list"></div>
+          </div>
+          <div class="card ai-side-card">
+            <h3 style="display:flex;align-items:center;gap:7px;"><span class="mod-icon-wrap mi-ash" style="width:26px;height:26px;border-radius:7px;margin-bottom:0;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>Conversation Tips</h3>
+            <div id="scenarioTips" style="font-size:13px;color:var(--text-secondary);line-height:1.8;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- Grammatical Report Modal -->
+<div class="admin-modal-overlay" id="reportModal" style="display:none; justify-content:center; align-items:center; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(92, 93, 103, 0.4); backdrop-filter:blur(4px); z-index:2000;">
+  <div class="admin-modal-box" style="background:#FFFFFF; border-radius:var(--radius); width:90%; max-width:650px; box-shadow:0 20px 25px -5px rgba(0,0,0,0.1); overflow:hidden; display:flex; flex-direction:column; max-height:85vh;">
+    <div class="modal-header" style="display:flex; justify-content:space-between; align-items:center; padding:18px 24px; border-bottom:1px solid rgba(166,139,165,0.12);">
+      <h3 style="font-size:16px; font-weight:700; color:var(--charcoal); display:flex; align-items:center; gap:8px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Scenario Grammar Evaluation
+      </h3>
+      <button class="modal-close" onclick="closeModal('reportModal')" style="background:none; border:none; font-size:24px; cursor:pointer; color:var(--lilac-ash); line-height:1;">&times;</button>
+    </div>
+    <div class="modal-body" style="padding:24px; overflow-y:auto; flex:1;">
+      
+      <!-- Score summary card -->
+      <div style="display:flex; gap:20px; align-items:center; background:rgba(196,147,176,0.08); padding:16px; border-radius:var(--radius-sm); border:1px solid rgba(196,147,176,0.15); margin-bottom:20px;">
+        <div style="width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg, var(--blush), var(--lilac-2)); display:flex; align-items:center; justify-content:center; color:white; font-size:22px; font-weight:800; flex-shrink:0;" id="reportScore">75</div>
+        <div>
+          <h4 style="font-weight:700; color:var(--charcoal); margin-bottom:4px;" id="reportScenarioTitle">At the Café</h4>
+          <p style="font-size:13px; color:var(--text-secondary);" id="reportMeta">Japanese · Beginner · May 25, 2026</p>
+        </div>
+      </div>
+
+      <!-- Report content -->
+      <div style="margin-bottom:20px;">
+        <h4 style="font-size:14px; font-weight:700; color:var(--charcoal); margin-bottom:10px; display:flex; align-items:center; gap:6px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+          Grammar & Vocabulary Review
+        </h4>
+        <div class="report-text" id="reportContent" style="font-size:13px; color:var(--charcoal); line-height:1.6; background:var(--bg-page); padding:16px; border-radius:var(--radius-sm); border:1px solid var(--border); overflow-wrap: break-word;">
+          <!-- Markdown parsed text will go here -->
+        </div>
+      </div>
+
+      <!-- Transcript toggle area -->
+      <div style="margin-bottom:12px;">
+        <button class="btn-primary" onclick="toggleReportTranscript()" style="background:#8A7B96; padding:8px 16px; font-size:13px; width:100%; border-radius:8px; display:flex; align-items:center; justify-content:center; gap:6px; margin-bottom:12px; border:none; cursor:pointer;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          View Full Conversation Transcript
+        </button>
+        <div id="reportTranscript" style="display:none; background:var(--bg-page); border:1px solid var(--border); border-radius:var(--radius-sm); padding:16px; max-height:220px; overflow-y:auto; gap:10px; flex-direction:column;">
+          <!-- Messages will go here -->
+        </div>
+      </div>
+
+    </div>
+    <div class="modal-footer" style="padding:16px 24px; border-top:1px solid rgba(166,139,165,0.12); display:flex; justify-content:flex-end; background:var(--bg-page);">
+      <button class="btn-primary" style="background:var(--lilac-2); padding:8px 16px; font-size:13px; border:none; border-radius:8px; cursor:pointer; color:white; font-weight:600;" onclick="closeModal('reportModal')">Close Evaluation</button>
+    </div>
+  </div>
+</div>
+
+<script src="../js/linguova-stats.js"></script>
+<script src="../js/ai-practice.js"></script>
+</body>
+</html>

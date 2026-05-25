@@ -1,0 +1,245 @@
+/* ── AUTH PAGES (Login + Register) ── */
+
+.auth-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ── LEFT PANEL — Rich Charcoal branding ── */
+.auth-left {
+  width: 42%;
+  background: var(--charcoal);
+  padding: 56px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative blush blobs */
+.auth-left::before {
+  content: '';
+  position: absolute;
+  width: 340px; height: 340px;
+  background: radial-gradient(circle, rgba(237, 173, 199, 0.18) 0%, transparent 70%);
+  top: -100px; left: -80px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.auth-left::after {
+  content: '';
+  position: absolute;
+  width: 260px; height: 260px;
+  background: radial-gradient(circle, rgba(196, 147, 176, 0.15) 0%, transparent 70%);
+  bottom: 40px; right: -60px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Brand logo + name */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.brand-name {
+  font-size: 34px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #FFFFFF 30%, var(--blush));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.brand-tagline {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.8;
+  margin-bottom: 48px;
+  max-width: 320px;
+}
+
+/* Language pills */
+.language-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.lang-pill {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 99px;
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  transition: all 0.2s;
+  cursor: default;
+}
+.lang-pill:hover,
+.lang-pill.active {
+  background: var(--lilac-2);
+  border-color: var(--lilac-2);
+  color: #FFFFFF;
+}
+
+/* ── RIGHT PANEL — Clean white form ── */
+.auth-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 40px;
+  background: var(--bg-page);
+}
+
+.auth-form-wrap {
+  width: 100%;
+  max-width: 400px;
+  background: #FFFFFF;
+  border-radius: var(--radius);
+  padding: 40px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 32px rgba(166, 139, 165, 0.12);
+}
+
+.auth-form-wrap h2 {
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: var(--charcoal);
+}
+
+.auth-sub {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-bottom: 32px;
+}
+
+.form-group { margin-bottom: 20px; position: relative; }
+.form-group label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.forgot-link {
+  display: block;
+  text-align: right;
+  font-size: 12px;
+  color: var(--lilac-2);
+  margin-top: 6px;
+  transition: opacity 0.2s;
+  font-weight: 600;
+}
+.forgot-link:hover { opacity: 0.75; }
+
+/* Submit button */
+.btn-primary {
+  width: 100%;
+  padding: 13px;
+  font-size: 15px;
+  border-radius: var(--radius-sm);
+  background: var(--charcoal);
+  color: #FFFFFF;
+  box-shadow: 0 4px 16px rgba(92, 93, 103, 0.3);
+  margin-top: 8px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-primary:hover {
+  background: var(--lilac-2);
+  box-shadow: 0 6px 24px rgba(196, 147, 176, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Divider */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0 16px;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* Google button */
+.btn-google {
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--charcoal);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.2s;
+}
+.btn-google::before {
+  content: 'G';
+  font-weight: 800;
+  font-size: 16px;
+  color: #EDADC7;
+}
+.btn-google:hover {
+  border-color: var(--lilac-2);
+  background: rgba(196, 147, 176, 0.05);
+}
+
+/* Register link */
+.register-link {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 20px;
+}
+.register-link a {
+  color: var(--lilac-2);
+  font-weight: 700;
+  transition: opacity 0.2s;
+}
+.register-link a:hover { opacity: 0.8; }
+
+/* Input focus ring */
+.input-field:focus {
+  border-color: var(--lilac-2);
+  box-shadow: 0 0 0 3px rgba(196, 147, 176, 0.15);
+}
+
+/* Error message */
+#error-msg {
+  font-size: 13px;
+  margin-top: 8px;
+  padding: 10px 14px;
+  background: rgba(209, 153, 182, 0.1);
+  border: 1px solid rgba(209, 153, 182, 0.3);
+  border-radius: var(--radius-sm);
+  color: var(--charcoal);
+}

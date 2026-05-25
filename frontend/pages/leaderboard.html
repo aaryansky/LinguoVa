@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Leaderboard — LinguoVa</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/leaderboard.css">
+</head>
+<body>
+<div class="app-layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo"><span class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EDADC7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span><span class="logo-text">LinguoVa</span></div>
+    <nav>
+      <p class="nav-label">Learn</p>
+      <a href="dashboard.html" class="nav-item"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>Dashboard</a>
+      <a href="modules.html" class="nav-item"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>Learning Modules</a>
+      <a href="ai-practice.html" class="nav-item"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>AI Practice</a>
+      <a href="daily-words.html" class="nav-item"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>Daily Words</a>
+      <a href="leaderboard.html" class="nav-item active"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 20 18 10"/><polyline points="12 20 12 4"/><polyline points="6 20 6 14"/></svg></span>Leaderboard</a>
+      <p class="nav-label">Account</p>
+      <a href="settings.html" class="nav-item"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>Settings</a>
+    </nav>
+    <a href="profile.html" class="sidebar-user">
+      <div class="user-avatar" id="userInitials">AK</div>
+      <div>
+        <p class="user-name" id="userName">Aryan Kumar</p>
+        <p class="user-level" id="userLevel">Learning Champion</p>
+      </div>
+    </a>
+  </aside>
+
+  <main class="main-content">
+    <div class="lb-header">
+      <div>
+        <h1 style="display:flex;align-items:center;gap:10px;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 18 12 22 16 18"/><path d="M12 22V14"/><path d="M20 4H4l2 6 6 4 6-4z"/><path d="M4 4c0 4 2 6 4 8"/><path d="M20 4c0 4-2 6-4 8"/></svg> Leaderboard</h1>
+        <p style="color:var(--text-secondary);font-size:14px;margin-top:4px;">Top learners this week</p>
+      </div>
+      <div class="lb-tabs">
+        <button class="lb-tab active" onclick="setTab(this,'weekly')">Weekly</button>
+        <button class="lb-tab" onclick="setTab(this,'monthly')">Monthly</button>
+        <button class="lb-tab" onclick="setTab(this,'alltime')">All Time</button>
+      </div>
+    </div>
+
+    <!-- Top 3 Podium -->
+    <div class="podium">
+      <div class="podium-spot second">
+        <div class="podium-avatar">P</div>
+        <p class="podium-name" id="p2name">Priya S.</p>
+        <p class="podium-xp" id="p2xp">1,840 XP</p>
+        <div class="podium-block">2</div>
+      </div>
+      <div class="podium-spot first">
+        <div class="crown"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#EDADC7" stroke="#EDADC7" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <div class="podium-avatar large">A</div>
+        <p class="podium-name" id="p1name">Aryan K.</p>
+        <p class="podium-xp" id="p1xp">2,560 XP</p>
+        <div class="podium-block">1</div>
+      </div>
+      <div class="podium-spot third">
+        <div class="podium-avatar">R</div>
+        <p class="podium-name" id="p3name">Rahul M.</p>
+        <p class="podium-xp" id="p3xp">1,320 XP</p>
+        <div class="podium-block">3</div>
+      </div>
+    </div>
+
+    <!-- Full Leaderboard Table -->
+    <div class="card lb-table-card">
+      <div id="lbTable">
+        <!-- Filled by JS -->
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/linguova-stats.js"></script>
+<script src="../js/leaderboard.js"></script>
+</body>
+</html>
