@@ -7,10 +7,9 @@ const ScenarioSession = require('../models/ScenarioSession');
 // Initialize Gemini
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
-// Model priority list — tries each in order if the previous fails with 503/429/quota errors
+// Model priority list — tries each in order if the previous fails
 const MODEL_PRIORITY = [
   'gemini-2.5-flash',
-  'gemini-1.5-flash',
   'gemini-2.0-flash',
   'gemini-2.0-flash-lite',
   'gemini-1.5-pro'
@@ -38,14 +37,7 @@ async function generateWithFallback(prompt) {
     } catch (err) {
       lastErr = err;
       console.error(`Error with model ${modelName} during generateContent:`, err.message);
-      const isRetryable = err.message?.includes('503') ||
-                          err.message?.includes('502') ||
-                          err.message?.includes('429') ||
-                          err.message?.includes('overloaded') ||
-                          err.message?.includes('quota') ||
-                          err.message?.includes('rate limit') ||
-                          err.message?.includes('resource');
-      if (!isRetryable) throw err;
+      // Fallback: try the next model in activeModels list
     }
   }
   throw lastErr;
@@ -102,16 +94,7 @@ const chat = async (req, res) => {
       } catch (err) {
         lastErr = err;
         console.error(`Error with model ${modelName} during chat:`, err.message);
-        const isRetryable = err.message?.includes('503') ||
-                            err.message?.includes('502') ||
-                            err.message?.includes('429') ||
-                            err.message?.includes('overloaded') ||
-                            err.message?.includes('quota') ||
-                            err.message?.includes('rate limit') ||
-                            err.message?.includes('resource');
-        if (!isRetryable) {
-          return res.status(500).json({ message: err.message });
-        }
+        // Fallback: try the next model in activeModels list
       }
     }
 
